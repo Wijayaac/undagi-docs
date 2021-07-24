@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { StaticQuery, graphql } from 'gatsby';
-import GitHubButton from 'react-github-btn';
-import Link from './link';
 import Loadable from 'react-loadable';
 
 import config from '../../config.js';
@@ -46,7 +44,7 @@ const StyledBgDiv = styled('div')`
   background-color: #f8f8f8;
   position: relative;
   display: none;
-  background: ${props => (props.isDarkThemeActive ? '#001932' : undefined)};
+  background: ${(props) => (props.isDarkThemeActive ? '#001932' : undefined)};
 
   @media (max-width: 767px) {
     display: block;
@@ -75,39 +73,19 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
         }
       }
     `}
-    render={data => {
-      const logoImg = require('./images/logo.svg');
-
+    render={(data) => {
       const twitter = require('./images/twitter.svg');
-
-      const discordBrandsBlock = require('./images/discord-brands-block.svg');
-
-      const twitterBrandsBlock = require('./images/twitter-brands-block.svg');
 
       const {
         site: {
-          siteMetadata: { headerTitle, githubUrl, helpUrl, tweetText, logo, headerLinks },
+          siteMetadata: { githubUrl, helpUrl, tweetText, headerLinks },
         },
       } = data;
-
-      const finalLogoLink = logo.link !== '' ? logo.link : 'https://hasura.io/';
 
       return (
         <div className={'navBarWrapper'}>
           <nav className={'navBarDefault'}>
-            <div className={'navBarHeader'}>
-              <Link to={finalLogoLink} className={'navBarBrand'}>
-                <img
-                  className={'img-responsive displayInline'}
-                  src={logo.image !== '' ? logo.image : logoImg}
-                  alt={'logo'}
-                />
-              </Link>
-              <div
-                className={'headerTitle displayInline'}
-                dangerouslySetInnerHTML={{ __html: headerTitle }}
-              />
-            </div>
+            <div className={'navBarHeader'}>UNDAGI | DOCS</div>
             {config.header.social ? (
               <ul
                 className="socialWrapper visibleMobileView"
@@ -161,25 +139,6 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                 ) : null}
                 {tweetText !== '' || githubUrl !== '' ? (
                   <li className="divider hiddenMobile"></li>
-                ) : null}
-                {config.header.social ? (
-                  <li className={'hiddenMobile'}>
-                    <ul
-                      className="socialWrapper"
-                      dangerouslySetInnerHTML={{ __html: config.header.social }}
-                    ></ul>
-                  </li>
-                ) : null}
-                {githubUrl !== '' ? (
-                  <li className={'githubBtn'}>
-                    <GitHubButton
-                      href={githubUrl}
-                      data-show-count="true"
-                      aria-label="Star on GitHub"
-                    >
-                      Star
-                    </GitHubButton>
-                  </li>
                 ) : null}
                 <li>
                   <DarkModeSwitch
