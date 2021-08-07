@@ -1,7 +1,7 @@
 const config = {
   gatsby: {
     pathPrefix: '/',
-    siteUrl: 'https://hasura.io',
+    siteUrl: 'https://undagicode.com',
     gaTrackingId: null,
     trailingSlash: false,
   },
@@ -44,15 +44,15 @@ const config = {
     collapsedNav: [
       '/codeblock', // add trailing slash if enabled above
     ],
-    links: [{ text: 'Hasura', link: 'https://hasura.io' }],
+    links: [{ text: 'Undagi Code', link: 'https://undagicode.com' }],
     frontline: false,
     ignoreIndex: true,
     title:
       "<a href='https://undagicode.com/'>Undagi </a><div class='greenCircle'></div><a href='https://undagicode.com/'>Code</a>",
   },
   siteMetadata: {
-    title: 'Gatsby Gitbook Boilerplate | Hasura',
-    description: 'Documentation built with mdx. Powering hasura.io/learn ',
+    title: 'Gatsby Gitbook Boilerplate | Undagi Code',
+    description: 'Documentation built with mdx. Powering doc.undagicode.com ',
     ogImage: null,
     docsLocation: 'https://github.com/hasura/gatsby-gitbook-boilerplate/tree/master/content',
     favicon: 'https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg',
